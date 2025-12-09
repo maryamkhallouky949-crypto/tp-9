@@ -1,0 +1,27 @@
+Différence entre alist = [0]*6 et np.zeros(6)
+
+alist = [0]*6 crée une liste Python, alors que np.zeros(6) crée un tableau NumPy.
+
+La liste Python contient 6 entiers classiques (int).
+Elle ne permet pas les opérations mathématiques vectorisées : si tu fais alist * 10, tu obtiens la liste répétée 10 fois.
+
+Le tableau NumPy contient 6 nombres flottants (float64).
+Il permet les opérations mathématiques sur tous les éléments à la fois : np.zeros(6) * 10 multiplie réellement les éléments.
+Pourquoi np.linspace(0, 1, 5) inclut les bornes ?
+
+linspace est conçu pour diviser un intervalle complet entre un début et une fin.
+Il produit exactement le nombre de valeurs demandé, en incluant le début et la fin.
+
+Cela permet de représenter un segment continu, comme en mathématiques, de 0 à 1.
+Erreur avec reshape(4, 3) sur un tableau de taille 9
+
+Un tableau de taille 9 ne peut pas être réorganisé en une forme qui contient 12 éléments (4 × 3 = 12).
+NumPy ne peut pas inventer ou supprimer des données.
+
+Il renverra donc une ValueError, indiquant que la nouvelle forme est incompatible avec la taille du tableau.
+Transformer un tableau en liste Python et inversement (pour JSON)
+
+Pour convertir un tableau NumPy en liste Python, on utilise .tolist().
+Pour convertir une liste en tableau NumPy, on utilise np.array().
+
+C’est indispensable pour JSON, car le format JSON ne reconnaît pas les objets NumPy : il ne comprend que les listes classiques.
